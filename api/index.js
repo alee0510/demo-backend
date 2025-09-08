@@ -1,15 +1,13 @@
-import express from "express";
-import { createServerlessExpress } from "@vendia/serverless-express";
+export default function handler(req, res) {
+  if (req.method === "GET") {
+    return res.status(200).json({
+      message: "Welcome to the API!",
+      endpoints: {
+        "/api": "This endpoint",
+        "/api/hello": "Hello endpoint",
+      },
+    });
+  }
 
-const app = express();
-
-app.get("/hello", (req, res) => {
-  res.json({ message: "Hello from Express on Vercel!" });
-});
-
-app.get("/", (req, res) => {
-  res.json({ message: "Welcome to the API!" });
-});
-
-// Export as Vercel handler
-export default createServerlessExpress({ app });
+  res.status(405).json({ error: "Method not allowed" });
+}

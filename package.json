@@ -9,8 +9,5 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "dependencies": {
-    "@vendia/serverless-express": "^4.12.6",
-    "express": "^4.19.2"
-  }
+  "dependencies": {}
 }
